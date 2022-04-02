@@ -17,16 +17,19 @@ public class debitCardApplicationTest {
 
     @BeforeAll
     public static void setUpAll() { // тут устанавливаем проперти с путем до хром драйвер
-        WebDriverManager.chromedriver().setup();
+         WebDriverManager.chromedriver().setup();
+
     }
 
     @BeforeEach
     public void setupTest() {
-        ChromeOptions options = new ChromeOptions();      // Включение headless режима
-        options.addArguments("--disable-dev-shm-usage");  // при использовании selenium необходимо
-        options.addArguments("--no-sandbox");             // реализовать в коде во время создания экземпляра
-        options.addArguments("--headless");               // webdriver
-        driver = new ChromeDriver(options);   //инициализируем переменную новым хромдрайвером
+//        ChromeOptions options = new ChromeOptions();      // Включение headless режима
+//        options.addArguments("--disable-dev-shm-usage");  // при использовании selenium необходимо
+//        options.addArguments("--no-sandbox");             // реализовать в коде во время создания экземпляра
+//        options.addArguments("--headless");               // webdriver
+//        driver = new ChromeDriver(options);   //инициализируем переменную новым хромдрайвером
+          driver = new ChromeDriver();
+
     }
 
     @AfterEach                         //  у драйвера будем вызывать те методы, котоые необходимо сделать автотесту, чтобы он вел себя как пользователдь
@@ -45,7 +48,7 @@ public class debitCardApplicationTest {
     @Test
     public void shouldSendForm() {
         driver.get("http://localhost:9999/");
-        driver.findElement(By.cssSelector("[data-test-id='name']")).sendKeys("Фамилия Имя");
+        driver.findElement(By.cssSelector("[name='name']")).sendKeys("Фамилия Имя");
         driver.findElement(By.cssSelector("[type='tel']")).sendKeys("+79998886677"); //найди поле для ввода телефона и введи номер
         driver.findElement(By.cssSelector("[data-test-id='agreement']")).click(); //найди чек-бокс и кликни по нему
         driver.findElement(By.cssSelector("[type='button']")).click();  //найди кнопку "Продолжить" и клтикни по ней
