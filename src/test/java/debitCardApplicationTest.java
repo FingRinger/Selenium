@@ -25,12 +25,12 @@ public class debitCardApplicationTest {
 
     @BeforeEach
     public void setupTest() {
-//        ChromeOptions options = new ChromeOptions();      // Включение headless режима
-//        options.addArguments("--disable-dev-shm-usage");  // при использовании selenium необходимо
-//        options.addArguments("--no-sandbox");             // реализовать в коде во время создания экземпляра
-//        options.addArguments("--headless");               // webdriver
-//        driver = new ChromeDriver(options);   //инициализируем переменную новым хромдрайвером
-          driver = new ChromeDriver();
+        ChromeOptions options = new ChromeOptions();      // Включение headless режима
+        options.addArguments("--disable-dev-shm-usage");  // при использовании selenium необходимо
+        options.addArguments("--no-sandbox");             // реализовать в коде во время создания экземпляра
+        options.addArguments("--headless");               // webdriver
+        driver = new ChromeDriver(options);   //инициализируем переменную новым хромдрайвером
+        // driver = new ChromeDriver();
 
     }
 
